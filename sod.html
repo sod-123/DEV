@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Readable Login Form</title>
+    <link rel="stylesheet" href="sod.css">
+</head>
+<body>
+
+    <div class="login-container">
+
+        <h2 id="lf">Login Form</h2>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label for="username">Username</label>
+
+                <input 
+                    type="text" 
+                    id="username" 
+                    placeholder="Enter username"
+                >
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Enter password"
+                >
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+
+            <div id="message" class="message"></div>
+
+        </form>
+
+        <div class="footer-text">
+            Don't have an account?
+            <a href="register.html">Register</a>
+        </div>
+
+    </div>
+
+    <script>
+
+        // Access form and message area
+        const loginForm = document.getElementById("loginForm");
+        const message = document.getElementById("message");
+
+        // Add submit event
+        loginForm.addEventListener("submit", function(event){
+
+            // Prevent page refresh
+            event.preventDefault();
+
+            // Get entered values
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validation
+            if(username === "" || password === ""){
+
+                message.textContent = "Please fill all fields";
+                message.className = "message error";
+
+            }
+            else{
+
+                message.textContent = "Login successful!";
+                message.className = "message success";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
